@@ -12,11 +12,15 @@ export default class AuthController {
   public async login({ auth, request }: HttpContextContract) {
     const email = request.input('email')
     const password = request.input('password')
-
-    return auth.use('web').attempt(email, password)
+    return auth.use('api').attempt(email, password)
   }
 
   public async logout({ auth }: HttpContextContract) {
-    return auth.use('web').logout()
+    return auth.use('api').logout()
+  }
+
+  public async me({ auth }: HttpContextContract) {
+    await auth.user!.load('roles')
+    return auth.user
   }
 }

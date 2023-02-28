@@ -7,14 +7,14 @@ export default class extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
       table
-        .integer('id_user')
+        .integer('user_id')
         .notNullable()
         .unsigned()
         .references('id')
         .inTable('users')
         .onDelete('NO ACTION')
       table
-        .integer('id_role')
+        .integer('role_id')
         .notNullable()
         .unsigned()
         .references('id')
