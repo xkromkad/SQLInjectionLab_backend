@@ -1,27 +1,21 @@
 import BaseSeeder from '@ioc:Adonis/Lucid/Seeder'
-import Role from 'App/Models/Role'
+import Device from 'App/Models/Device'
 
 export default class extends BaseSeeder {
   public async run() {
     // Write your database queries inside the run method
     const payload = [
       {
-        role_name: 'admin',
+        device_type: 'computer',
       },
       {
-        role_name: 'patient',
+        device_type: 'tablet',
       },
       {
-        role_name: 'guardian',
-      },
-      {
-        role_name: 'doctor',
-      },
-      {
-        role_name: 'manager',
+        device_type: 'mobile',
       },
     ]
     // Write your database queries inside the run method
-    await Role.createMany(payload)
+    await Device.createMany(payload)
   }
 }

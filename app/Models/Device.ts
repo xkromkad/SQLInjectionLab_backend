@@ -5,6 +5,9 @@ export default class Device extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
+  @column()
+  public device_type: string
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 
