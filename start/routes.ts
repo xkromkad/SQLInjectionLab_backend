@@ -30,3 +30,11 @@ Route.group(() => {
   Route.post('logout', 'AuthController.logout').middleware('auth')
   Route.get('me', 'AuthController.me').middleware('auth')
 }).prefix('auth')
+
+// SIGN IN ROUTES
+Route.get('api/sessions/oauth/google', async ({ ally, auth }) => {
+  return ally.use('google').redirect()
+})
+
+//OAuth CALLBACK
+Route.get('google-signin-callback', 'GoogleSignInsController.handleCallback')

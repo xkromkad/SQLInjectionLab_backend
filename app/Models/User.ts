@@ -23,6 +23,12 @@ export default class User extends BaseModel {
   public rememberMeToken: string | null
 
   @column()
+  public providerId: string
+
+  @column()
+  public provider: string
+
+  @column()
   public created_by: number
 
   @column()
