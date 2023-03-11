@@ -1,3 +1,7 @@
-// import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+//import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
-export default class OrganizationsController {}
+export default class OrganizationsController {
+  public async getCenters() {
+    return 'fungujem'
+  }
+}

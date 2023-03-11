@@ -4,7 +4,10 @@ export default class AppProvider {
   constructor(protected app: ApplicationContract) {}
 
   public register() {
-    // Register your own bindings
+    // bind our implementation of MessageRepository to container
+    this.app.container.singleton('Repositories/OrganizationRepository', (container) => {
+      return container.make('App/Repositories/OrganizationRepository')
+    })
   }
 
   public async boot() {

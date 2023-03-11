@@ -20,18 +20,15 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', async ({ view }) => {
-  return view.render('welcome')
-})
+Route.get('centers', 'OrganizationsController.getCenters')
 
+// SIGN IN ROUTES
 Route.group(() => {
   Route.post('register', 'AuthController.register')
   Route.post('login', 'AuthController.login')
   Route.post('logout', 'AuthController.logout').middleware('auth')
   Route.get('me', 'AuthController.me').middleware('auth')
 }).prefix('auth')
-
-// SIGN IN ROUTES
 Route.get('api/sessions/oauth/google', async ({ ally, auth }) => {
   return ally.use('google').redirect()
 })
