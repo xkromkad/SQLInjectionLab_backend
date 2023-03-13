@@ -12,6 +12,9 @@ export default class Address extends BaseModel {
   public city: string
 
   @column()
+  public street: string
+
+  @column()
   public number: string
 
   @column()

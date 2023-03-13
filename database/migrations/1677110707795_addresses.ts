@@ -8,6 +8,7 @@ export default class extends BaseSchema {
       table.increments('id')
       table.string('country', 60).notNullable()
       table.string('city', 60).notNullable()
+      table.string('street', 60).notNullable()
       table.string('number', 20).notNullable()
       table.string('postal_code', 20).notNullable()
       table
