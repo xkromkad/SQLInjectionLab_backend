@@ -29,6 +29,7 @@ Route.get('centers', 'OrganizationsController.getCenters')
 // REHABILITATION ROUTES
 Route.group(() => {
   Route.get('rehabilitationCategories', 'RehabilitationCategoriesController.getCategories')
+  Route.get('exercises', 'ExercisesController.getExercises')
 }).prefix('rehabilitation')
 
 // SIGN IN ROUTES
