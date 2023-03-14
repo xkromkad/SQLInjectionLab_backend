@@ -26,6 +26,11 @@ Route.get('/', async ({ view }) => {
 
 Route.get('centers', 'OrganizationsController.getCenters')
 
+// REHABILITATION ROUTES
+Route.group(() => {
+  Route.get('rehabilitationCategories', 'RehabilitationCategoriesController.getCategories')
+}).prefix('rehabilitation')
+
 // SIGN IN ROUTES
 Route.group(() => {
   Route.post('register', 'AuthController.register')
@@ -33,6 +38,7 @@ Route.group(() => {
   Route.post('logout', 'AuthController.logout').middleware('auth')
   Route.get('me', 'AuthController.me').middleware('auth')
 }).prefix('auth')
+
 Route.get('api/sessions/oauth/google', async ({ ally, auth }) => {
   return ally.use('google').redirect()
 })

@@ -1,9 +1,9 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
 export default class extends BaseSchema {
-  protected tableName = 'exercises_rehabilitation_areas'
+  protected tableName = 'exercises_rehabilitation_categories'
 
-  public async up () {
+  public async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
       table
@@ -14,11 +14,11 @@ export default class extends BaseSchema {
         .inTable('exercises')
         .onDelete('CASCADE')
       table
-        .integer('id_rehabilitation_area')
+        .integer('id_rehabilitation_category')
         .notNullable()
         .unsigned()
         .references('id')
-        .inTable('rehabilitation_areas')
+        .inTable('rehabilitation_categories')
         .onDelete('CASCADE')
       table.integer('level')
       /**
@@ -29,7 +29,7 @@ export default class extends BaseSchema {
     })
   }
 
-  public async down () {
+  public async down() {
     this.schema.dropTable(this.tableName)
   }
 }

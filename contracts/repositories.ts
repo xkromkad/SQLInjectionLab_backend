@@ -31,3 +31,14 @@ declare module '@ioc:Repositories/OrganizationRepository' {
 
   export const OrganizationRepository: OrganizationRepositoryContract
 }
+
+declare module '@ioc:Repositories/RehabilitationRepository' {
+  import { LucidModel, ModelPaginatorContract } from '@ioc:Adonis/Lucid/Orm'
+  import RehabilitationCategory from 'App/Models/RehabilitationCategory'
+
+  export interface RehabilitationRepositoryContract {
+    getRehabilitationCategories(): Promise<RehabilitationCategory[]>
+  }
+
+  export const RehabilitationRepository: RehabilitationRepositoryContract
+}
