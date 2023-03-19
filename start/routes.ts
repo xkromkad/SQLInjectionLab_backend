@@ -24,11 +24,12 @@ Route.get('/', async ({ view }) => {
   return view.render('welcome')
 })
 
-Route.get('centers', 'OrganizationsController.getCenters')
+// ORGANIZATION ROUTES
+Route.get('centers', 'OrganizationsController.getOrganizations')
 
 // REHABILITATION ROUTES
 Route.group(() => {
-  Route.get('rehabilitationCategories', 'RehabilitationCategoriesController.getCategories')
+  Route.get('categories', 'RehabilitationCategoriesController.getCategories')
   Route.get('exercises', 'ExercisesController.getExercises')
 }).prefix('rehabilitation')
 

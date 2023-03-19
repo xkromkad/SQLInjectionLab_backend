@@ -4,29 +4,8 @@ declare module '@ioc:Repositories/OrganizationRepository' {
   import { LucidModel, ModelPaginatorContract } from '@ioc:Adonis/Lucid/Orm'
   import Organization from 'App/Models/Organization'
 
-  export interface SerializedMessage {
-    createdBy: number
-    content: string
-    channelId: number
-    createdAt: string
-    updatedAt: string
-    id: number
-    author: {
-      id: number
-      email: string
-      createdAt: string
-      updatedAt: string
-    }
-  }
-
   export interface OrganizationRepositoryContract {
-    findAll(
-      page: number,
-      state: string,
-      city: string,
-      beforeDate?: Date,
-      limit?: number
-    ): Promise<ModelPaginatorContract<Organization>>
+    getOrganizations(): Promise<Organization[]>
   }
 
   export const OrganizationRepository: OrganizationRepositoryContract
