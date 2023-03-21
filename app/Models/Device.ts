@@ -8,6 +8,15 @@ export default class Device extends BaseModel {
   @column()
   public device_type: string
 
+  @column()
+  public icon: string
+
+  @column()
+  public screensize_from: number
+
+  @column()
+  public screensize_to: number
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 
