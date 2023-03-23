@@ -24,8 +24,11 @@ Route.get('/', async ({ view }) => {
   return view.render('welcome')
 })
 
+// NEWS ROUTES
+Route.get('news', 'NewsController.getNews')
+
 // ORGANIZATION ROUTES
-Route.get('centers', 'OrganizationsController.getOrganizations')
+Route.get('organizations', 'OrganizationsController.getOrganizations')
 
 // REHABILITATION ROUTES
 Route.group(() => {

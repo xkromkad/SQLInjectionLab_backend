@@ -12,9 +12,9 @@ export default class AppProvider {
     this.app.container.singleton('Repositories/RehabilitationRepository', (container) => {
       return container.make('App/Repositories/RehabilitationRepository')
     })
-    // bind our implementation of OrganizationRepository to container
-    this.app.container.singleton('Repositories/OrganizationRepository', (container) => {
-      return container.make('App/Repositories/OrganizationRepository')
+    // bind our implementation of NewsRepository to container
+    this.app.container.singleton('Repositories/NewsRepository', (container) => {
+      return container.make('App/Repositories/NewsRepository')
     })
   }
 

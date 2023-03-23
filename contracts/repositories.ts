@@ -25,3 +25,15 @@ declare module '@ioc:Repositories/RehabilitationRepository' {
 
   export const RehabilitationRepository: RehabilitationRepositoryContract
 }
+
+// here we are declaring our OrganizationRepository types for Repositories/NewsRepository
+// container binding. See providers/AppProvider.ts for how we are binding the implementation
+declare module '@ioc:Repositories/NewsRepository' {
+  import News from 'App/Models/News'
+
+  export interface NewsRepositoryContract {
+    getNews(): Promise<News[]>
+  }
+
+  export const NewsRepository: NewsRepositoryContract
+}
