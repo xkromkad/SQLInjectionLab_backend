@@ -9,6 +9,9 @@ export default class Organization extends BaseModel {
   public name: string
 
   @column()
+  public description: string
+
+  @column()
   public address_id: number
 
   @column()
