@@ -8,27 +8,12 @@ export default class RehabilitationRepository implements RehabilitationRepositor
   }
   public async getExercises(): Promise<Exercise[]> {
     const exercises = await Exercise.query()
-      .select(
-        'exercises.id',
-        'exercises.name',
-        'exercises.mark',
-        'exercises.description',
-        'devices.device_type',
-        'rehabilitation_categories.name as rehabilitation_category_name'
-      )
-      .leftJoin('exercises_devices', 'exercises.id', 'exercises_devices.id_exercise')
-      .leftJoin('devices', 'exercises_devices.id_device', 'devices.id')
-      .leftJoin(
-        'exercises_rehabilitation_categories',
-        'exercises.id',
-        'exercises_rehabilitation_categories.id_exercise'
-      )
-      .leftJoin(
-        'rehabilitation_categories',
-        'exercises_rehabilitation_categories.id_rehabilitation_category',
-        'rehabilitation_categories.id'
-      )
-      .orderBy('exercises.id', 'asc')
+      .preload('devices', (query) => {
+        query.pivotColumns(['level'])
+      })
+      .preload('rehabilitationCategories')
+      .exec()
+    console.log(exercises)
     return exercises
   }
 }
