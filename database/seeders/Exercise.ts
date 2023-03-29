@@ -8,6 +8,7 @@ export default class extends BaseSeeder {
         name: 'Pexeso',
         mark: 'pexeso',
         description: 'Pexeso je skvelá hra na trénovanie pamäte.',
+        image: 'pexeso.png',
         created_by: 1,
         updated_by: 1,
         devices: [
@@ -33,6 +34,23 @@ export default class extends BaseSeeder {
         rehabilitationCategories: [
           { id: 1, level: 2 }, // associate device with id 1 and level 2
           { id: 2, level: 1 }, // associate device with id 2 and level 1
+        ],
+      },
+      {
+        name: 'Nájdi písmenká',
+        mark: 'findLetters',
+        description:
+          'Úlohou je nájsť zadané písmo spomedzi skupiny písmen. Pacient týmto cvičením trénuje svoju pozornosť a trénuje čítanie.',
+        created_by: 1,
+        updated_by: 1,
+        devices: [
+          { id: 1, level: 3 },
+          { id: 2, level: 3 },
+          { id: 3, level: 3 },
+        ],
+        rehabilitationCategories: [
+          { id: 2, level: 2 },
+          { id: 6, level: 2 },
         ],
       },
     ]
