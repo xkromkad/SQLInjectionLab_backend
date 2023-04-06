@@ -1,11 +1,13 @@
 import RehabilitationCategory from 'App/Models/RehabilitationCategory'
 import Exercise from 'App/Models/Exercise'
+import User from 'App/Models/User'
 import type { RehabilitationRepositoryContract } from '@ioc:Repositories/RehabilitationRepository'
 
 export default class RehabilitationRepository implements RehabilitationRepositoryContract {
   public async getRehabilitationCategories(): Promise<RehabilitationCategory[]> {
     return await RehabilitationCategory.all()
   }
+
   public async getExercises(): Promise<Exercise[]> {
     const exercises = await Exercise.query()
       .preload('devices', (query) => {
@@ -13,7 +15,12 @@ export default class RehabilitationRepository implements RehabilitationRepositor
       })
       .preload('rehabilitationCategories')
       .exec()
-    console.log(exercises)
     return exercises
+  }
+
+  public async saveUserExercise(user: User, idExercise: number): Promise<Exercise> {
+    const exercise = await Exercise.findOrFail(idExercise)
+    await user.related('exercises').attach([exercise.id])
+    return exercise
   }
 }

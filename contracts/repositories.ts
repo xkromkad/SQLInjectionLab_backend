@@ -17,10 +17,12 @@ declare module '@ioc:Repositories/RehabilitationRepository' {
   import { LucidModel, ModelPaginatorContract } from '@ioc:Adonis/Lucid/Orm'
   import RehabilitationCategory from 'App/Models/RehabilitationCategory'
   import Exercise from 'App/Models/Exercise'
+  import User from 'App/Models/User'
 
   export interface RehabilitationRepositoryContract {
     getRehabilitationCategories(): Promise<RehabilitationCategory[]>
     getExercises(): Promise<Exercise[]>
+    saveUserExercise(user: User, idExercise: number): Promise<Exercise>
   }
 
   export const RehabilitationRepository: RehabilitationRepositoryContract

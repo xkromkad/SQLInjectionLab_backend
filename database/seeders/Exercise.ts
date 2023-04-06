@@ -53,6 +53,23 @@ export default class extends BaseSeeder {
           { id: 6, level: 2 },
         ],
       },
+      {
+        name: 'Písanie čísel',
+        mark: 'drawNumbers',
+        description:
+          'Úlohou je napísať definované číslo. Pacient si precvičuje písanie, čítanie a jemnú motoriku.',
+        created_by: 1,
+        updated_by: 1,
+        devices: [
+          { id: 1, level: 3 },
+          { id: 2, level: 3 },
+          { id: 3, level: 3 },
+        ],
+        rehabilitationCategories: [
+          { id: 2, level: 2 },
+          { id: 6, level: 2 },
+        ],
+      },
     ]
 
     // Create exercises and associate them with devices

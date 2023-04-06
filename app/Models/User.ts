@@ -1,7 +1,16 @@
 import { DateTime } from 'luxon'
 import Hash from '@ioc:Adonis/Core/Hash'
-import { column, beforeSave, BaseModel, manyToMany, ManyToMany } from '@ioc:Adonis/Lucid/Orm'
+import {
+  column,
+  beforeSave,
+  BaseModel,
+  manyToMany,
+  ManyToMany,
+  hasMany,
+  HasMany,
+} from '@ioc:Adonis/Lucid/Orm'
 import Role from 'App/Models/Role'
+import Exercise from './Exercise'
 
 export default class User extends BaseModel {
   @column({ isPrimary: true })
@@ -58,4 +67,15 @@ export default class User extends BaseModel {
     // }
   })
   public roles: ManyToMany<typeof Role>
+
+  @hasMany(() => Exercise)
+  public adminChannels: HasMany<typeof Exercise>
+
+  @manyToMany(() => Exercise, {
+    pivotTable: 'users_exercises',
+    pivotForeignKey: 'user_id',
+    pivotRelatedForeignKey: 'exercise_id',
+    pivotTimestamps: false,
+  })
+  public exercises: ManyToMany<typeof Exercise>
 }

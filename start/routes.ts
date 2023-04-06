@@ -34,6 +34,8 @@ Route.get('organizations', 'OrganizationsController.getOrganizations')
 Route.group(() => {
   Route.get('categories', 'RehabilitationCategoriesController.getCategories')
   Route.get('exercises', 'ExercisesController.getExercises')
+  Route.get('savedExercises', 'ExercisesController.getSavedExercises').middleware('auth')
+  Route.post('saveUserExercise', 'ExercisesController.saveUserExercise').middleware('auth')
 }).prefix('rehabilitation')
 
 // SIGN IN ROUTES
