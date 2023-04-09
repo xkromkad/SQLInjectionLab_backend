@@ -18,9 +18,19 @@ export default class RehabilitationRepository implements RehabilitationRepositor
     return exercises
   }
 
+  public async getUserExercises(user: User): Promise<number[]> {
+    const exerciseIds = await user.related('exercises').query().select('id')
+    return exerciseIds.map((exercise) => exercise.id)
+  }
+
   public async saveUserExercise(user: User, idExercise: number): Promise<Exercise> {
     const exercise = await Exercise.findOrFail(idExercise)
     await user.related('exercises').attach([exercise.id])
     return exercise
+  }
+
+  public async removeUserExercise(user: User, idExercise: number): Promise<void> {
+    const exercise = await Exercise.findOrFail(idExercise)
+    await user.related('exercises').detach([exercise.id])
   }
 }

@@ -22,7 +22,9 @@ declare module '@ioc:Repositories/RehabilitationRepository' {
   export interface RehabilitationRepositoryContract {
     getRehabilitationCategories(): Promise<RehabilitationCategory[]>
     getExercises(): Promise<Exercise[]>
+    getUserExercises(user: User): Promise<number[]>
     saveUserExercise(user: User, idExercise: number): Promise<Exercise>
+    removeUserExercise(user: User, idExercise: number): Promise<void>
   }
 
   export const RehabilitationRepository: RehabilitationRepositoryContract
