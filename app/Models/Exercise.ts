@@ -20,6 +20,9 @@ export default class Exercise extends BaseModel {
   @column()
   public image: string
 
+  @column()
+  public has_statistics: boolean
+
   @manyToMany(() => Device, {
     pivotTable: 'exercises_devices',
     pivotForeignKey: 'id_exercise',

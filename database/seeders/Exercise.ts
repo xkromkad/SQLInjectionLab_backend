@@ -9,6 +9,7 @@ export default class extends BaseSeeder {
         mark: 'pexeso',
         description: 'Pexeso je skvelá hra na trénovanie pamäte.',
         image: 'pexeso.png',
+        has_statistics: true,
         created_by: 1,
         updated_by: 1,
         devices: [
@@ -56,8 +57,27 @@ export default class extends BaseSeeder {
       {
         name: 'Písanie čísel',
         mark: 'drawNumbers',
+        image: 'writeLetter.svg',
         description:
           'Úlohou je napísať definované číslo. Pacient si precvičuje písanie, čítanie a jemnú motoriku.',
+        created_by: 1,
+        updated_by: 1,
+        devices: [
+          { id: 1, level: 3 },
+          { id: 2, level: 3 },
+          { id: 3, level: 3 },
+        ],
+        rehabilitationCategories: [
+          { id: 2, level: 2 },
+          { id: 6, level: 2 },
+        ],
+      },
+      {
+        name: 'Písanie písmen',
+        mark: 'drawLetters',
+        image: 'writeNumber.svg',
+        description:
+          'Úlohou je napísať definované písmeno. Pacient si precvičuje písanie, čítanie a jemnú motoriku.',
         created_by: 1,
         updated_by: 1,
         devices: [
