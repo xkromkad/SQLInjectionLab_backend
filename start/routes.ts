@@ -35,8 +35,12 @@ Route.group(() => {
   Route.get('categories', 'RehabilitationCategoriesController.getCategories')
   Route.get('exercises', 'ExercisesController.getExercises')
   Route.get('savedExercises', 'ExercisesController.getUserExercises').middleware('auth')
+  Route.get('rehabilitation/pexeso/getStatistics', 'PexesoController.getStatistics').middleware(
+    'auth'
+  )
   Route.post('saveUserExercise', 'ExercisesController.saveUserExercise').middleware('auth')
   Route.post('removeUserExercise', 'ExercisesController.removeUserExercise').middleware('auth')
+  Route.post('pexeso/save', 'PexesoController.savePexeso').middleware('auth')
 }).prefix('rehabilitation')
 
 // SIGN IN ROUTES

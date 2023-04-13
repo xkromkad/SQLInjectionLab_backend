@@ -1,7 +1,9 @@
 import RehabilitationCategory from 'App/Models/RehabilitationCategory'
 import Exercise from 'App/Models/Exercise'
 import User from 'App/Models/User'
+import Pexeso from 'App/Models/Pexeso'
 import type { RehabilitationRepositoryContract } from '@ioc:Repositories/RehabilitationRepository'
+import { DateTime } from 'luxon'
 
 export default class RehabilitationRepository implements RehabilitationRepositoryContract {
   public async getRehabilitationCategories(): Promise<RehabilitationCategory[]> {
@@ -32,5 +34,16 @@ export default class RehabilitationRepository implements RehabilitationRepositor
   public async removeUserExercise(user: User, idExercise: number): Promise<void> {
     const exercise = await Exercise.findOrFail(idExercise)
     await user.related('exercises').detach([exercise.id])
+  }
+
+  public async savePexeso(user: User, time: number, date: DateTime, size: number): Promise<void> {
+    const pexeso = new Pexeso()
+
+    pexeso.time = time
+    pexeso.date = date
+    pexeso.size = size
+    pexeso.user_id = user.id
+
+    await pexeso.save()
   }
 }

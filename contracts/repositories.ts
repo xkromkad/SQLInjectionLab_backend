@@ -18,6 +18,7 @@ declare module '@ioc:Repositories/RehabilitationRepository' {
   import RehabilitationCategory from 'App/Models/RehabilitationCategory'
   import Exercise from 'App/Models/Exercise'
   import User from 'App/Models/User'
+  import { DateTime } from 'luxon'
 
   export interface RehabilitationRepositoryContract {
     getRehabilitationCategories(): Promise<RehabilitationCategory[]>
@@ -25,6 +26,7 @@ declare module '@ioc:Repositories/RehabilitationRepository' {
     getUserExercises(user: User): Promise<number[]>
     saveUserExercise(user: User, idExercise: number): Promise<Exercise>
     removeUserExercise(user: User, idExercise: number): Promise<void>
+    savePexeso(user: User, time: number, date: DateTime, size: number): Promise<void>
   }
 
   export const RehabilitationRepository: RehabilitationRepositoryContract
