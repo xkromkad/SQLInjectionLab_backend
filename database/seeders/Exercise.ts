@@ -26,6 +26,8 @@ export default class extends BaseSeeder {
         mark: 'findNumbers',
         description:
           'Hľadanie čísel z pomedzi ostatných čísel je skvelý spôosob na trénovanie pozornosti a postrehu.',
+        image: 'findNumbers.png',
+        has_statistics: true,
         created_by: 1,
         updated_by: 1,
         devices: [
@@ -42,6 +44,8 @@ export default class extends BaseSeeder {
         mark: 'findLetters',
         description:
           'Úlohou je nájsť zadané písmo spomedzi skupiny písmen. Pacient týmto cvičením trénuje svoju pozornosť a trénuje čítanie.',
+        image: 'findLetters.png',
+        has_statistics: true,
         created_by: 1,
         updated_by: 1,
         devices: [
