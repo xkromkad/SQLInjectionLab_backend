@@ -46,4 +46,9 @@ export default class RehabilitationRepository implements RehabilitationRepositor
 
     await pexeso.save()
   }
+
+  public async getStatistics(user: User): Promise<Pexeso[]> {
+    const statistics = await Pexeso.query().where('user_id', user.id)
+    return statistics
+  }
 }

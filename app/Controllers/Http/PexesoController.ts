@@ -26,4 +26,16 @@ export default class PexesoController {
       })
     }
   }
+
+  public async getStatistics({ auth, response }: HttpContextContract) {
+    try {
+      const pexesoStatistic = await this.rehabilitationRepository.getStatistics(auth.user!)
+      return pexesoStatistic
+    } catch (e) {
+      console.log(e)
+      return response.status(200).send({
+        msg: e.message,
+      })
+    }
+  }
 }
