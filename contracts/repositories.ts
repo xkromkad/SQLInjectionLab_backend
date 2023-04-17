@@ -17,6 +17,7 @@ declare module '@ioc:Repositories/RehabilitationRepository' {
   import { LucidModel, ModelPaginatorContract } from '@ioc:Adonis/Lucid/Orm'
   import RehabilitationCategory from 'App/Models/RehabilitationCategory'
   import Exercise from 'App/Models/Exercise'
+  import Device from 'App/Models/Device'
   import User from 'App/Models/User'
   import Pexeso from 'App/Models/Pexeso'
   import { DateTime } from 'luxon'
@@ -29,6 +30,7 @@ declare module '@ioc:Repositories/RehabilitationRepository' {
     removeUserExercise(user: User, idExercise: number): Promise<void>
     savePexeso(user: User, time: number, date: DateTime, size: number): Promise<void>
     getStatistics(user: User): Promise<Pexeso[]>
+    getDevices(): Promise<Device[]>
   }
 
   export const RehabilitationRepository: RehabilitationRepositoryContract
