@@ -1,5 +1,7 @@
 # Use a smaller base image
-FROM node:14-alpine
+#docker build -t rehapp_backend .
+#docker run -p 3000:3000 -d rehapp_backend
+FROM node:14-alpine3.14
 
 WORKDIR /usr/src/app
 
@@ -12,4 +14,6 @@ COPY .env.production .env
 
 EXPOSE ${PORTS}
 
-CMD [ "npm", "run", "dev"]
+ENV NODE_ENV=production
+
+CMD [ "node", "ace", "serve"]
