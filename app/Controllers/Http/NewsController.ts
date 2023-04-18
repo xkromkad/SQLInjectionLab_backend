@@ -2,11 +2,11 @@
 import { NewsRepositoryContract } from '@ioc:Repositories/NewsRepository'
 import { inject } from '@adonisjs/core/build/standalone'
 
-@inject(['Repositories/OrganizationRepository'])
+@inject(['Repositories/NewsRepository'])
 export default class NewsController {
   constructor(private newsRepository: NewsRepositoryContract) {}
 
-  public async getOrganizations() {
+  public async getNews() {
     return await this.newsRepository.getNews()
   }
 }

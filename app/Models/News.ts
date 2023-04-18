@@ -14,6 +14,9 @@ export default class News extends BaseModel {
   @column()
   public image: string
 
+  @column()
+  public page: string
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 

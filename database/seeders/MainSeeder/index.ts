@@ -13,5 +13,6 @@ export default class IndexSeeder extends BaseSeeder {
     await this.runSeeder(await import('../Organization'))
     await this.runSeeder(await import('../Device'))
     await this.runSeeder(await import('../Exercise'))
+    await this.runSeeder(await import('../News'))
   }
 }

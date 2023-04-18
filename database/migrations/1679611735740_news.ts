@@ -9,6 +9,7 @@ export default class extends BaseSchema {
       table.string('title', 80).notNullable()
       table.string('content', 500).notNullable()
       table.string('image', 100)
+      table.string('page', 100)
       table
         .integer('created_by')
         .nullable()
