@@ -61,7 +61,7 @@ export default class extends BaseSeeder {
       {
         name: 'Písanie čísel',
         mark: 'drawNumbers',
-        image: 'writeLetter.svg',
+        image: 'drawNumbers.png',
         description:
           'Úlohou je napísať definované číslo. Pacient si precvičuje písanie, čítanie a jemnú motoriku.',
         created_by: 1,
@@ -79,9 +79,94 @@ export default class extends BaseSeeder {
       {
         name: 'Písanie písmen',
         mark: 'drawLetters',
-        image: 'writeNumber.svg',
+        image: 'drawLetters.png',
         description:
           'Úlohou je napísať definované písmeno. Pacient si precvičuje písanie, čítanie a jemnú motoriku.',
+        created_by: 1,
+        updated_by: 1,
+        devices: [
+          { id: 1, level: 3 },
+          { id: 2, level: 3 },
+          { id: 3, level: 3 },
+        ],
+        rehabilitationCategories: [
+          { id: 2, level: 2 },
+          { id: 6, level: 2 },
+        ],
+      },
+      {
+        name: 'Logopedické cvičenia',
+        mark: 'logopedic',
+        image: 'logopedic.png',
+        description: 'Videá s ukážkami logopedických cvičení.',
+        created_by: 1,
+        updated_by: 1,
+        devices: [
+          { id: 1, level: 3 },
+          { id: 2, level: 3 },
+          { id: 3, level: 3 },
+        ],
+        rehabilitationCategories: [
+          { id: 2, level: 2 },
+          { id: 6, level: 2 },
+        ],
+      },
+      {
+        name: 'Pohybové cvičenia',
+        mark: 'movement',
+        image: 'movement.png',
+        description: 'Videá s ukážkami otáčania pacienta a nácviku postavenia sa.',
+        created_by: 1,
+        updated_by: 1,
+        devices: [
+          { id: 1, level: 3 },
+          { id: 2, level: 3 },
+          { id: 3, level: 3 },
+        ],
+        rehabilitationCategories: [
+          { id: 2, level: 2 },
+          { id: 6, level: 2 },
+        ],
+      },
+      {
+        name: 'Počítanie',
+        mark: 'maths',
+        image: 'maths.png',
+        description: 'Počítanie príkladov na sčítanie, odčítanie, násobenie a delenie.',
+        created_by: 1,
+        updated_by: 1,
+        devices: [
+          { id: 1, level: 3 },
+          { id: 2, level: 3 },
+          { id: 3, level: 3 },
+        ],
+        rehabilitationCategories: [
+          { id: 2, level: 2 },
+          { id: 6, level: 2 },
+        ],
+      },
+      {
+        name: 'Opis obrázkov',
+        mark: 'description',
+        image: 'description.png',
+        description: 'Diskutujte o zobrazenom obrázku, môžete použiť pomôcky.',
+        created_by: 1,
+        updated_by: 1,
+        devices: [
+          { id: 1, level: 3 },
+          { id: 2, level: 3 },
+          { id: 3, level: 3 },
+        ],
+        rehabilitationCategories: [
+          { id: 2, level: 2 },
+          { id: 6, level: 2 },
+        ],
+      },
+      {
+        name: 'Zoradzovanie',
+        mark: 'ordering',
+        image: 'ordering.png',
+        description: 'Zoraď dni, mesiace, čísla alebo písmenka do správneho poradia.',
         created_by: 1,
         updated_by: 1,
         devices: [
