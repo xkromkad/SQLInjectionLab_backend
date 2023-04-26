@@ -13,6 +13,9 @@ export default class Description extends BaseModel {
   public image: string
 
   @column()
+  public imageSource: string
+
+  @column()
   public search: string
 
   @column()
@@ -43,7 +46,7 @@ export default class Description extends BaseModel {
     localKey: 'id',
     foreignKey: 'typeId',
   })
-  public admin: BelongsTo<typeof DescriptionType>
+  public type: BelongsTo<typeof DescriptionType>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

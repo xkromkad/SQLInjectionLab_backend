@@ -8,6 +8,7 @@ export default class extends BaseSchema {
       table.increments('id')
       table.string('title', 30)
       table.string('image', 60)
+      table.string('image_source', 200)
       table.string('search', 60)
       table.string('see', 60)
       table.string('emotion', 60)

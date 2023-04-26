@@ -13,30 +13,33 @@ export default class extends BaseSeeder {
         created_by: 1,
         updated_by: 1,
         devices: [
-          { id: 1, level: 2 }, // associate device with id 1 and level 2
-          { id: 2, level: 1 }, // associate device with id 2 and level 1
+          { id: 1, level: 1 },
+          { id: 2, level: 2 },
+          { id: 3, level: 3 },
         ],
         rehabilitationCategories: [
-          { id: 1, level: 2 }, // associate device with id 1 and level 2
-          { id: 2, level: 1 }, // associate device with id 2 and level 1
+          { id: 4, level: 2 },
+          { id: 5, level: 1 },
+          { id: 6, level: 3 },
         ],
       },
       {
         name: 'Nájdi čísla',
         mark: 'findNumbers',
         description:
-          'Hľadanie čísel z pomedzi ostatných čísel je skvelý spôosob na trénovanie pozornosti a postrehu.',
+          'Hľadanie čísel z pomedzi ostatných čísel je skvelý spôsob na trénovanie pozornosti a postrehu.',
         image: 'findNumbers.png',
         has_statistics: true,
         created_by: 1,
         updated_by: 1,
         devices: [
-          { id: 1, level: 2 }, // associate device with id 1 and level 2
-          { id: 2, level: 1 }, // associate device with id 2 and level 1
+          { id: 1, level: 1 },
+          { id: 2, level: 2 },
+          { id: 3, level: 3 },
         ],
         rehabilitationCategories: [
-          { id: 1, level: 2 }, // associate device with id 1 and level 2
-          { id: 2, level: 1 }, // associate device with id 2 and level 1
+          { id: 2, level: 1 },
+          { id: 6, level: 1 },
         ],
       },
       {
@@ -49,13 +52,13 @@ export default class extends BaseSeeder {
         created_by: 1,
         updated_by: 1,
         devices: [
-          { id: 1, level: 3 },
-          { id: 2, level: 3 },
+          { id: 1, level: 1 },
+          { id: 2, level: 2 },
           { id: 3, level: 3 },
         ],
         rehabilitationCategories: [
-          { id: 2, level: 2 },
-          { id: 6, level: 2 },
+          { id: 2, level: 1 },
+          { id: 6, level: 1 },
         ],
       },
       {
@@ -67,13 +70,12 @@ export default class extends BaseSeeder {
         created_by: 1,
         updated_by: 1,
         devices: [
-          { id: 1, level: 3 },
-          { id: 2, level: 3 },
-          { id: 3, level: 3 },
+          { id: 2, level: 1 },
+          { id: 3, level: 2 },
         ],
         rehabilitationCategories: [
           { id: 2, level: 2 },
-          { id: 6, level: 2 },
+          { id: 7, level: 1 },
         ],
       },
       {
@@ -85,13 +87,12 @@ export default class extends BaseSeeder {
         created_by: 1,
         updated_by: 1,
         devices: [
-          { id: 1, level: 3 },
-          { id: 2, level: 3 },
-          { id: 3, level: 3 },
+          { id: 2, level: 1 },
+          { id: 3, level: 2 },
         ],
         rehabilitationCategories: [
           { id: 2, level: 2 },
-          { id: 6, level: 2 },
+          { id: 7, level: 1 },
         ],
       },
       {
@@ -102,9 +103,9 @@ export default class extends BaseSeeder {
         created_by: 1,
         updated_by: 1,
         devices: [
-          { id: 1, level: 3 },
-          { id: 2, level: 3 },
-          { id: 3, level: 3 },
+          { id: 1, level: 1 },
+          { id: 2, level: 1 },
+          { id: 3, level: 1 },
         ],
         rehabilitationCategories: [
           { id: 2, level: 2 },
@@ -119,14 +120,11 @@ export default class extends BaseSeeder {
         created_by: 1,
         updated_by: 1,
         devices: [
-          { id: 1, level: 3 },
-          { id: 2, level: 3 },
-          { id: 3, level: 3 },
+          { id: 1, level: 1 },
+          { id: 2, level: 1 },
+          { id: 3, level: 1 },
         ],
-        rehabilitationCategories: [
-          { id: 2, level: 2 },
-          { id: 6, level: 2 },
-        ],
+        rehabilitationCategories: [{ id: 3, level: 1 }],
       },
       {
         name: 'Počítanie',
@@ -136,14 +134,11 @@ export default class extends BaseSeeder {
         created_by: 1,
         updated_by: 1,
         devices: [
-          { id: 1, level: 3 },
-          { id: 2, level: 3 },
+          { id: 1, level: 1 },
+          { id: 2, level: 2 },
           { id: 3, level: 3 },
         ],
-        rehabilitationCategories: [
-          { id: 2, level: 2 },
-          { id: 6, level: 2 },
-        ],
+        rehabilitationCategories: [{ id: 1, level: 4 }],
       },
       {
         name: 'Opis obrázkov',
@@ -153,13 +148,14 @@ export default class extends BaseSeeder {
         created_by: 1,
         updated_by: 1,
         devices: [
-          { id: 1, level: 3 },
-          { id: 2, level: 3 },
-          { id: 3, level: 3 },
+          { id: 1, level: 1 },
+          { id: 2, level: 1 },
+          { id: 3, level: 1 },
         ],
         rehabilitationCategories: [
-          { id: 2, level: 2 },
-          { id: 6, level: 2 },
+          { id: 1, level: 1 },
+          { id: 4, level: 2 },
+          { id: 5, level: 2 },
         ],
       },
       {
@@ -170,14 +166,11 @@ export default class extends BaseSeeder {
         created_by: 1,
         updated_by: 1,
         devices: [
-          { id: 1, level: 3 },
-          { id: 2, level: 3 },
-          { id: 3, level: 3 },
+          { id: 1, level: 1 },
+          { id: 2, level: 1 },
+          { id: 3, level: 1 },
         ],
-        rehabilitationCategories: [
-          { id: 2, level: 2 },
-          { id: 6, level: 2 },
-        ],
+        rehabilitationCategories: [{ id: 1, level: 1 }],
       },
     ]
 

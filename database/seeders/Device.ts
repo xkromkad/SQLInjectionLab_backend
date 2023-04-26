@@ -6,15 +6,15 @@ export default class extends BaseSeeder {
     // Write your database queries inside the run method
     const payload = [
       {
-        device_type: 'computer',
+        device_type: 'Počítač',
         icon: 'computer',
       },
       {
-        device_type: 'tablet',
+        device_type: 'Tablet',
         icon: 'tablet_android',
       },
       {
-        device_type: 'mobile',
+        device_type: 'Mobil',
         icon: 'smartphone',
       },
     ]
