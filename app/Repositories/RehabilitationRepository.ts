@@ -5,6 +5,8 @@ import Pexeso from 'App/Models/Pexeso'
 import type { RehabilitationRepositoryContract } from '@ioc:Repositories/RehabilitationRepository'
 import { DateTime } from 'luxon'
 import Device from 'App/Models/Device'
+import DescriptionType from 'App/Models/DescriptionType'
+import Description from 'App/Models/Description'
 
 export default class RehabilitationRepository implements RehabilitationRepositoryContract {
   public async getRehabilitationCategories(): Promise<RehabilitationCategory[]> {
@@ -55,5 +57,13 @@ export default class RehabilitationRepository implements RehabilitationRepositor
 
   public async getDevices(): Promise<Device[]> {
     return await Device.all()
+  }
+
+  public async getDescriptionTypes(): Promise<DescriptionType[]> {
+    return await DescriptionType.all()
+  }
+
+  public async getDescriptionCards(type: string): Promise<Description[]> {
+    return await Description.query().where('typeId', type).select()
   }
 }

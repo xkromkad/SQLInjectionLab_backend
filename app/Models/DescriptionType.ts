@@ -9,6 +9,12 @@ export default class DescriptionType extends BaseModel {
   public name: string
 
   @column()
+  public image: string
+
+  @column()
+  public imageSource: string
+
+  @column()
   public level: number
 
   @column.dateTime({ autoCreate: true })

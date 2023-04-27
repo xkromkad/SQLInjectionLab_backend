@@ -37,6 +37,8 @@ Route.group(() => {
   Route.get('savedExercises', 'ExercisesController.getUserExercises').middleware('auth')
   Route.get('pexeso/getStatistics', 'PexesoController.getStatistics').middleware('auth')
   Route.get('devices', 'DevicesController.getDevices')
+  Route.get('description/types', 'DescriptionsController.getTypes')
+  Route.get('description/cards/:type', 'DescriptionsController.getCards')
   Route.post('saveUserExercise', 'ExercisesController.saveUserExercise').middleware('auth')
   Route.post('removeUserExercise', 'ExercisesController.removeUserExercise').middleware('auth')
   Route.post('pexeso/save', 'PexesoController.savePexeso').middleware('auth')

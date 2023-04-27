@@ -159,7 +159,7 @@ export default class extends BaseSeeder {
         ],
       },
       {
-        name: 'Zoradzovanie',
+        name: 'Zoraďovanie objektov',
         mark: 'ordering',
         image: 'ordering.png',
         description: 'Zoraď dni, mesiace, čísla alebo písmenka do správneho poradia.',
