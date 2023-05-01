@@ -100,6 +100,7 @@ export default class extends BaseSeeder {
         mark: 'logopedic',
         image: 'logopedic.png',
         description: 'Videá s ukážkami logopedických cvičení.',
+        is_game: false,
         created_by: 1,
         updated_by: 1,
         devices: [
@@ -117,6 +118,7 @@ export default class extends BaseSeeder {
         mark: 'movement',
         image: 'movement.png',
         description: 'Videá s ukážkami otáčania pacienta a nácviku postavenia sa.',
+        is_game: false,
         created_by: 1,
         updated_by: 1,
         devices: [

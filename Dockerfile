@@ -10,7 +10,7 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
-COPY .env.production .env
+COPY .env .env
 
 EXPOSE ${PORTS}
 

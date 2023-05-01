@@ -1,31 +1,22 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
 export default class extends BaseSchema {
-  protected tableName = 'exercises'
+  protected tableName = 'ordering_cards'
 
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
       table.string('name', 60).notNullable()
-      table.string('mark', 20).notNullable()
-      table.string('description', 1000)
+      table.integer('order').notNullable()
       table.string('image', 60).nullable()
-      table.boolean('has_statistics').nullable()
-      table.boolean('is_game').defaultTo(true)
+      table.string('image_source', 200).nullable()
       table
-        .integer('created_by')
+        .integer('type_id')
         .notNullable()
         .unsigned()
         .references('id')
-        .inTable('users')
-        .onDelete('NO ACTION')
-      table
-        .integer('updated_by')
-        .notNullable()
-        .unsigned()
-        .references('id')
-        .inTable('users')
-        .onDelete('NO ACTION')
+        .inTable('ordering_cards_types')
+        .onDelete('CASCADE')
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
        */

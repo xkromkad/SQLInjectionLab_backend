@@ -23,6 +23,9 @@ export default class Exercise extends BaseModel {
   @column()
   public has_statistics: boolean
 
+  @column()
+  public is_game: boolean
+
   @manyToMany(() => Device, {
     pivotTable: 'exercises_devices',
     pivotForeignKey: 'id_exercise',

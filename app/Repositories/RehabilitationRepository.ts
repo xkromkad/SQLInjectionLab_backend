@@ -7,6 +7,8 @@ import { DateTime } from 'luxon'
 import Device from 'App/Models/Device'
 import DescriptionType from 'App/Models/DescriptionType'
 import Description from 'App/Models/Description'
+import OrderingCardsType from 'App/Models/OrderingCardsType'
+import OrderingCard from 'App/Models/OrderingCard'
 
 export default class RehabilitationRepository implements RehabilitationRepositoryContract {
   public async getRehabilitationCategories(): Promise<RehabilitationCategory[]> {
@@ -65,5 +67,13 @@ export default class RehabilitationRepository implements RehabilitationRepositor
 
   public async getDescriptionCards(type: string): Promise<Description[]> {
     return await Description.query().where('typeId', type).select()
+  }
+
+  public async getOrderingTypes(): Promise<OrderingCardsType[]> {
+    return await OrderingCardsType.all()
+  }
+
+  public async getOrderingCards(type: string): Promise<OrderingCard[]> {
+    return await OrderingCard.query().where('typeId', type).select()
   }
 }

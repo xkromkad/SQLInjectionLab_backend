@@ -22,6 +22,8 @@ declare module '@ioc:Repositories/RehabilitationRepository' {
   import Pexeso from 'App/Models/Pexeso'
   import DescriptionType from 'App/Models/DescriptionType'
   import Description from 'App/Models/Description'
+  import OrderingCardsType from 'App/Models/OrderingCardsType'
+  import OrderingCard from 'App/Models/OrderingCard'
   import { DateTime } from 'luxon'
 
   export interface RehabilitationRepositoryContract {
@@ -35,6 +37,8 @@ declare module '@ioc:Repositories/RehabilitationRepository' {
     getDevices(): Promise<Device[]>
     getDescriptionTypes(): Promise<DescriptionType[]>
     getDescriptionCards(type: string): Promise<Description[]>
+    getOrderingTypes(): Promise<OrderingCardsType[]>
+    getOrderingCards(type: string): Promise<OrderingCard[]>
   }
 
   export const RehabilitationRepository: RehabilitationRepositoryContract

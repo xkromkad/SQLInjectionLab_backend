@@ -1,7 +1,7 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
 export default class extends BaseSchema {
-  protected tableName = 'description_types'
+  protected tableName = 'ordering_cards_types'
 
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
@@ -9,8 +9,6 @@ export default class extends BaseSchema {
       table.string('name', 30).notNullable()
       table.string('image', 60)
       table.string('image_source', 200)
-      table.integer('level').nullable()
-
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
        */
