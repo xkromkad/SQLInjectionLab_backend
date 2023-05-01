@@ -30,6 +30,11 @@ Route.get('news', 'NewsController.getNews')
 // ORGANIZATION ROUTES
 Route.get('organizations', 'OrganizationsController.getOrganizations')
 
+// DISCOVER ROUTES
+Route.group(() => {
+  Route.get('articles', 'DiscoversController.getArticles')
+}).prefix('discover')
+
 // REHABILITATION ROUTES
 Route.group(() => {
   Route.get('categories', 'RehabilitationCategoriesController.getCategories')

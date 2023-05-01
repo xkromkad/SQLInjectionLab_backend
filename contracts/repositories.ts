@@ -1,3 +1,16 @@
+// here we are declaring our DiscoverRepository types for Repositories/DiscoveerRepository
+// container binding. See providers/AppProvider.ts for how we are binding the implementation
+declare module '@ioc:Repositories/DiscoverRepository' {
+  import { LucidModel, ModelPaginatorContract } from '@ioc:Adonis/Lucid/Orm'
+  import Discover from 'App/Models/Discover'
+
+  export interface DiscoverRepositoryContract {
+    getArticles(): Promise<Discover[]>
+  }
+
+  export const DiscoverRepository: DiscoverRepositoryContract
+}
+
 // here we are declaring our OrganizationRepository types for Repositories/OrganizationRepository
 // container binding. See providers/AppProvider.ts for how we are binding the implementation
 declare module '@ioc:Repositories/OrganizationRepository' {
