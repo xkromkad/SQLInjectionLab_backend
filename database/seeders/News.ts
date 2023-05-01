@@ -11,6 +11,30 @@ export default class extends BaseSeeder {
         image: 'pexeso.png',
         page: 'rehabilitation/pexeso',
       },
+      {
+        title: 'Písanie čísel',
+        content: 'Nové cvičenie na tréning čítania a písanie čísel.',
+        image: 'drawLetters.png',
+        page: 'rehabilitation/drawLetters',
+      },
+      {
+        title: 'Písanie písmen',
+        content: 'Nové cvičenie na tréning čítania a písanie písmen.',
+        image: 'drawNumbers.png',
+        page: 'rehabilitation/drawNumbers',
+      },
+      {
+        title: 'Logopedické cvičenia',
+        content: 'Videá s vysvetlením logopedických cvičení.',
+        image: 'logopedic.png',
+        page: 'rehabilitation/logopedic',
+      },
+      {
+        title: 'Počítanie',
+        content: 'Cvičenie na výpočet jednoduchým matematických príkladov.',
+        image: 'maths.png',
+        page: 'rehabilitation/maths',
+      },
     ]
     await News.createMany(payload)
   }
