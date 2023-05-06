@@ -26,6 +26,9 @@ export default class Pexeso extends BaseModel {
   })
   public user: BelongsTo<typeof User>
 
+  @column()
+  public isShared: boolean
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 

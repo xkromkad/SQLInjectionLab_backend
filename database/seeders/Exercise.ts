@@ -140,7 +140,7 @@ export default class extends BaseSeeder {
           { id: 2, level: 2 },
           { id: 3, level: 3 },
         ],
-        rehabilitationCategories: [{ id: 1, level: 4 }],
+        rehabilitationCategories: [{ id: 4, level: 4 }],
       },
       {
         name: 'Opis obrázkov',

@@ -4,6 +4,6 @@ import type { OrganizationRepositoryContract } from '@ioc:Repositories/Organizat
 
 export default class OrganizationRepository implements OrganizationRepositoryContract {
   public async getOrganizations(): Promise<Organization[]> {
-    return await Organization.all()
+    return await Organization.query().preload('address').exec()
   }
 }

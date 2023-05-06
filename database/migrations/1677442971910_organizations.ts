@@ -15,6 +15,9 @@ export default class extends BaseSchema {
         .references('id')
         .inTable('addresses')
         .onDelete('NO ACTION')
+      table.string('url', 100)
+      table.string('image', 60)
+      table.string('image_source', 200)
       table
         .integer('created_by')
         .notNullable()

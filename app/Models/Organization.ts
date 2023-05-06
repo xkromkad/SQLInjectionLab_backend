@@ -1,5 +1,6 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, belongsTo, BelongsTo } from '@ioc:Adonis/Lucid/Orm'
+import Address from './Address'
 
 export default class Organization extends BaseModel {
   @column({ isPrimary: true })
@@ -12,7 +13,22 @@ export default class Organization extends BaseModel {
   public description: string
 
   @column()
-  public address_id: number
+  public addressId: number
+
+  @belongsTo(() => Address, {
+    localKey: 'id',
+    foreignKey: 'addressId',
+  })
+  public address: BelongsTo<typeof Address>
+
+  @column()
+  public url: string
+
+  @column()
+  public image: string
+
+  @column()
+  public imageSource: string
 
   @column()
   public created_by: number
