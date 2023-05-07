@@ -20,7 +20,7 @@ export default class extends BaseSeeder {
         name: 'Sekunda pre život',
         description:
           'Sekunda pre život je občianske združenie, pacientska organizácia združujúca pacientov po cievnej mozgovej príhode a s fibriláciou predsiení.',
-        address_id: 2,
+        address_id: 3,
         url: 'https://www.sekundaprezivot.sk',
         image: 'organizations/sekunda.jpg',
         imageSource:
@@ -32,7 +32,7 @@ export default class extends BaseSeeder {
         name: 'Ayurfyzio',
         description:
           'Sme mladí ľudia s chuťou a nadšením pre život. Máme túžbu poznávať život, seba a všetko okolo nás. Chceme neustále zlepšovať kvalitu svojho života aj nášho okolia.',
-        address_id: 3,
+        address_id: 2,
         url: 'https://www.ayurfyzio.sk',
         image: 'organizations/ayurfyzio.jpg',
         imageSource:

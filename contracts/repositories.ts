@@ -46,7 +46,25 @@ declare module '@ioc:Repositories/RehabilitationRepository' {
     saveUserExercise(user: User, idExercise: number): Promise<Exercise>
     removeUserExercise(user: User, idExercise: number): Promise<void>
     savePexeso(user: User, time: number, date: DateTime, size: number): Promise<void>
+    saveLetters(
+      user: User,
+      time: number,
+      date: DateTime,
+      size: number,
+      correctRate: number,
+      missedtRate: number
+    ): Promise<void>
+    saveNumbers(
+      user: User,
+      time: number,
+      date: DateTime,
+      size: number,
+      correctRate: number,
+      missedtRate: number
+    ): Promise<void>
     getStatistics(user: User): Promise<Pexeso[]>
+    getNumbersStatistics(user: User): Promise<Pexeso[]>
+    getLettersStatistics(user: User): Promise<Pexeso[]>
     getDevices(): Promise<Device[]>
     getDescriptionTypes(): Promise<DescriptionType[]>
     getDescriptionCards(type: string): Promise<Description[]>

@@ -8,23 +8,23 @@ export default class extends BaseSeeder {
       {
         country: 'Slovakia',
         city: 'Bratislava',
-        street: 'Sv. Vincenta',
-        number: '1234/56',
-        postal_code: '02805',
+        street: 'Nobelova',
+        number: '1296/18',
+        postal_code: '831 02',
       },
       {
         country: 'Slovakia',
         city: 'Poprad',
-        street: 'Podtatranská',
-        number: '1111/56',
-        postal_code: '05801',
+        street: 'Karpatská',
+        number: '7',
+        postal_code: '058 01',
       },
       {
         country: 'SLovensko',
-        city: 'Košice',
-        street: 'Košická',
-        number: '2211/88',
-        postal_code: '12345',
+        city: 'Chorvátsky Grob',
+        street: 'Bottova',
+        number: '30',
+        postal_code: '900 25',
       },
     ]
     // Write your database queries inside the run method

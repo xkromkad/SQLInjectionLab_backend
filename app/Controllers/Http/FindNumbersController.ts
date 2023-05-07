@@ -4,21 +4,25 @@ import { inject } from '@adonisjs/core/build/standalone'
 import { DateTime } from 'luxon'
 
 @inject(['Repositories/RehabilitationRepository'])
-export default class PexesoController {
+export default class FindNumbersController {
   constructor(private rehabilitationRepository: RehabilitationRepositoryContract) {}
 
-  public async savePexeso({ request, auth, response }: HttpContextContract) {
+  public async saveNumbers({ request, auth, response }: HttpContextContract) {
     const time: number = request.input('time')
     const date: DateTime = request.input('date')
     const size: number = request.input('size')
+    const correctRate: number = request.input('correctCount')
+    const missedtRate: number = request.input('wrongCount')
     try {
-      const pexesoStatistic = await this.rehabilitationRepository.savePexeso(
+      const numbersStatistic = await this.rehabilitationRepository.saveNumbers(
         auth.user!,
         time,
         date,
-        size
+        size,
+        correctRate,
+        missedtRate
       )
-      return pexesoStatistic
+      return numbersStatistic
     } catch (e) {
       console.log(e)
       return response.status(200).send({
@@ -29,8 +33,8 @@ export default class PexesoController {
 
   public async getStatistics({ auth, response }: HttpContextContract) {
     try {
-      const pexesoStatistic = await this.rehabilitationRepository.getStatistics(auth.user!)
-      return pexesoStatistic
+      const numbersStatistic = await this.rehabilitationRepository.getNumbersStatistics(auth.user!)
+      return numbersStatistic
     } catch (e) {
       return response.status(200).send({
         msg: e.message,

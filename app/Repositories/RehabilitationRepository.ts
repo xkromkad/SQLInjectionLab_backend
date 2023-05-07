@@ -9,6 +9,8 @@ import DescriptionType from 'App/Models/DescriptionType'
 import Description from 'App/Models/Description'
 import OrderingCardsType from 'App/Models/OrderingCardsType'
 import OrderingCard from 'App/Models/OrderingCard'
+import FindNumber from 'App/Models/FindNumber'
+import FindLetter from 'App/Models/FindLetter'
 
 export default class RehabilitationRepository implements RehabilitationRepositoryContract {
   public async getRehabilitationCategories(): Promise<RehabilitationCategory[]> {
@@ -41,6 +43,46 @@ export default class RehabilitationRepository implements RehabilitationRepositor
     await user.related('exercises').detach([exercise.id])
   }
 
+  public async saveNumbers(
+    user: User,
+    time: number,
+    date: DateTime,
+    size: number,
+    correctRate: number,
+    missedtRate: number
+  ): Promise<void> {
+    const findNumber = new FindNumber()
+
+    findNumber.time = time
+    findNumber.date = date
+    findNumber.size = size
+    findNumber.correctRate = correctRate
+    findNumber.missedRate = missedtRate
+    findNumber.user_id = user.id
+
+    await findNumber.save()
+  }
+
+  public async saveLetters(
+    user: User,
+    time: number,
+    date: DateTime,
+    size: number,
+    correctRate: number,
+    missedtRate: number
+  ): Promise<void> {
+    const findLetter = new FindLetter()
+
+    findLetter.time = time
+    findLetter.date = date
+    findLetter.size = size
+    findLetter.correctRate = correctRate
+    findLetter.missedRate = missedtRate
+    findLetter.user_id = user.id
+
+    await findLetter.save()
+  }
+
   public async savePexeso(user: User, time: number, date: DateTime, size: number): Promise<void> {
     const pexeso = new Pexeso()
 
@@ -54,6 +96,16 @@ export default class RehabilitationRepository implements RehabilitationRepositor
 
   public async getStatistics(user: User): Promise<Pexeso[]> {
     const statistics = await Pexeso.query().where('user_id', user.id)
+    return statistics
+  }
+
+  public async getNumbersStatistics(user: User): Promise<FindNumber[]> {
+    const statistics = await FindNumber.query().where('user_id', user.id)
+    return statistics
+  }
+
+  public async getLettersStatistics(user: User): Promise<FindLetter[]> {
+    const statistics = await FindLetter.query().where('user_id', user.id)
     return statistics
   }
 

@@ -49,6 +49,10 @@ Route.group(() => {
   Route.post('saveUserExercise', 'ExercisesController.saveUserExercise').middleware('auth')
   Route.post('removeUserExercise', 'ExercisesController.removeUserExercise').middleware('auth')
   Route.post('pexeso/save', 'PexesoController.savePexeso').middleware('auth')
+  Route.post('findLetters/save', 'FindLettersController.saveLetters').middleware('auth')
+  Route.post('findNumbers/save', 'FindNumbersController.saveNumbers').middleware('auth')
+  Route.get('findLetters/getStatistics', 'FindLettersController.getStatistics').middleware('auth')
+  Route.get('findNumbers/getStatistics', 'FindNumbersController.getStatistics').middleware('auth')
 }).prefix('rehabilitation')
 
 // SIGN IN ROUTES
