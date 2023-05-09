@@ -16,9 +16,10 @@ declare module '@ioc:Repositories/DiscoverRepository' {
 declare module '@ioc:Repositories/OrganizationRepository' {
   import { LucidModel, ModelPaginatorContract } from '@ioc:Adonis/Lucid/Orm'
   import Organization from 'App/Models/Organization'
-
+  import User from 'App/Models/User'
   export interface OrganizationRepositoryContract {
     getOrganizations(): Promise<Organization[]>
+    sendComment(user: User, id: number, comment: string): Promise<void>
   }
 
   export const OrganizationRepository: OrganizationRepositoryContract

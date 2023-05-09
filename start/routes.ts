@@ -29,6 +29,9 @@ Route.get('news', 'NewsController.getNews')
 
 // ORGANIZATION ROUTES
 Route.get('organizations', 'OrganizationsController.getOrganizations')
+Route.group(() => {
+  Route.post('sendComment', 'OrganizationsController.sendComment').middleware('auth')
+}).prefix('organizations')
 
 // DISCOVER ROUTES
 Route.group(() => {

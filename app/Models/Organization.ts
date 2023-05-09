@@ -1,6 +1,7 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, belongsTo, BelongsTo } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, belongsTo, BelongsTo, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
 import Address from './Address'
+import OrganizationsComment from './OrganizationsComment'
 
 export default class Organization extends BaseModel {
   @column({ isPrimary: true })
@@ -29,6 +30,11 @@ export default class Organization extends BaseModel {
 
   @column()
   public imageSource: string
+
+  @hasMany(() => OrganizationsComment, {
+    foreignKey: 'organizationId',
+  })
+  public comments: HasMany<typeof OrganizationsComment>
 
   @column()
   public created_by: number

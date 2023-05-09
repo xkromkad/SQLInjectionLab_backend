@@ -1,6 +1,7 @@
-// import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { OrganizationRepositoryContract } from '@ioc:Repositories/OrganizationRepository'
 import { inject } from '@adonisjs/core/build/standalone'
+import Organization from 'App/Models/Organization'
 
 @inject(['Repositories/OrganizationRepository'])
 export default class OrganizationsController {
@@ -9,5 +10,19 @@ export default class OrganizationsController {
   public async getOrganizations() {
     console.log(await this.organizationRepository.getOrganizations())
     return await this.organizationRepository.getOrganizations()
+  }
+
+  public async sendComment({ request, auth, response }: HttpContextContract) {
+    const id: number = request.input('id')
+    const comment: string = request.input('comment')
+    try {
+      const savedComment = await this.organizationRepository.sendComment(auth.user!, id, comment)
+      return savedComment
+    } catch (e) {
+      console.log(e)
+      return response.status(200).send({
+        msg: e.message,
+      })
+    }
   }
 }
