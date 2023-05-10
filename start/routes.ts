@@ -27,6 +27,11 @@ Route.get('/', async ({ view }) => {
 // NEWS ROUTES
 Route.get('news', 'NewsController.getNews')
 
+// COMMUNITY ROUTES
+Route.group(() => {
+  Route.get('getPosts/:page', 'CommunityController.getPosts').middleware('auth')
+}).prefix('community')
+
 // ORGANIZATION ROUTES
 Route.get('organizations', 'OrganizationsController.getOrganizations')
 Route.group(() => {

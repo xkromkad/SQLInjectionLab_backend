@@ -20,6 +20,10 @@ export default class AppProvider {
     this.app.container.singleton('Repositories/NewsRepository', (container) => {
       return container.make('App/Repositories/NewsRepository')
     })
+    // bind our implementation of CommunityRepository to container
+    this.app.container.singleton('Repositories/CommunityRepository', (container) => {
+      return container.make('App/Repositories/CommunityRepository')
+    })
   }
 
   public async boot() {

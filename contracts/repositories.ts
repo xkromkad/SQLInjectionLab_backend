@@ -11,6 +11,18 @@ declare module '@ioc:Repositories/DiscoverRepository' {
   export const DiscoverRepository: DiscoverRepositoryContract
 }
 
+// here we are declaring our CommunityRepository types for Repositories/CommunityRepository
+// container binding. See providers/AppProvider.ts for how we are binding the implementation
+declare module '@ioc:Repositories/CommunityRepository' {
+  import { LucidModel, ModelPaginatorContract } from '@ioc:Adonis/Lucid/Orm'
+  import { Post } from 'Contracts/community'
+  export interface CommunityRepositoryContract {
+    getPosts(page: number): Promise<Post[]>
+  }
+
+  export const CommunityRepository: CommunityRepositoryContract
+}
+
 // here we are declaring our OrganizationRepository types for Repositories/OrganizationRepository
 // container binding. See providers/AppProvider.ts for how we are binding the implementation
 declare module '@ioc:Repositories/OrganizationRepository' {
