@@ -56,4 +56,8 @@ export default class CommunityRepository implements CommunityRepositoryContract 
 
     return await posts.all()
   }
+
+  public async getPageCount(): Promise<number> {
+    return 0
+  }
 }

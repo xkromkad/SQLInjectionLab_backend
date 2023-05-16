@@ -1,14 +1,12 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { OrganizationRepositoryContract } from '@ioc:Repositories/OrganizationRepository'
 import { inject } from '@adonisjs/core/build/standalone'
-import Organization from 'App/Models/Organization'
 
 @inject(['Repositories/OrganizationRepository'])
 export default class OrganizationsController {
   constructor(private organizationRepository: OrganizationRepositoryContract) {}
 
   public async getOrganizations() {
-    console.log(await this.organizationRepository.getOrganizations())
     return await this.organizationRepository.getOrganizations()
   }
 

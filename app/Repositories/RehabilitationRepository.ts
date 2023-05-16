@@ -50,7 +50,7 @@ export default class RehabilitationRepository implements RehabilitationRepositor
     size: number,
     correctRate: number,
     missedtRate: number
-  ): Promise<void> {
+  ): Promise<number> {
     const findNumber = new FindNumber()
 
     findNumber.time = time
@@ -61,6 +61,7 @@ export default class RehabilitationRepository implements RehabilitationRepositor
     findNumber.user_id = user.id
 
     await findNumber.save()
+    return findNumber.id
   }
 
   public async saveLetters(
@@ -70,7 +71,7 @@ export default class RehabilitationRepository implements RehabilitationRepositor
     size: number,
     correctRate: number,
     missedtRate: number
-  ): Promise<void> {
+  ): Promise<number> {
     const findLetter = new FindLetter()
 
     findLetter.time = time
@@ -81,9 +82,10 @@ export default class RehabilitationRepository implements RehabilitationRepositor
     findLetter.user_id = user.id
 
     await findLetter.save()
+    return findLetter.id
   }
 
-  public async savePexeso(user: User, time: number, date: DateTime, size: number): Promise<void> {
+  public async savePexeso(user: User, time: number, date: DateTime, size: number): Promise<number> {
     const pexeso = new Pexeso()
 
     pexeso.time = time
@@ -92,6 +94,28 @@ export default class RehabilitationRepository implements RehabilitationRepositor
     pexeso.user_id = user.id
 
     await pexeso.save()
+    return pexeso.id
+  }
+
+  public async sharePexeso(gameId: number): Promise<number> {
+    const pexeso = await Pexeso.findOrFail(gameId)
+    pexeso.isShared = true
+    await pexeso.save()
+    return pexeso.id
+  }
+
+  public async shareLetters(gameId: number): Promise<number> {
+    const letters = await FindLetter.findOrFail(gameId)
+    letters.isShared = true
+    await letters.save()
+    return letters.id
+  }
+
+  public async shareNumbers(gameId: number): Promise<number> {
+    const numbers = await FindNumber.findOrFail(gameId)
+    numbers.isShared = true
+    await numbers.save()
+    return numbers.id
   }
 
   public async getStatistics(user: User): Promise<Pexeso[]> {

@@ -27,6 +27,19 @@ export default class PexesoController {
     }
   }
 
+  public async sharePexeso({ request, response }: HttpContextContract) {
+    const gameId: number = request.input('gameId')
+    try {
+      const pexeso = await this.rehabilitationRepository.sharePexeso(gameId)
+      return pexeso
+    } catch (e) {
+      console.log(e)
+      return response.status(200).send({
+        msg: e.message,
+      })
+    }
+  }
+
   public async getStatistics({ auth, response }: HttpContextContract) {
     try {
       const pexesoStatistic = await this.rehabilitationRepository.getStatistics(auth.user!)

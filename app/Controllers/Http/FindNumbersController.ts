@@ -31,6 +31,19 @@ export default class FindNumbersController {
     }
   }
 
+  public async shareNumbers({ request, response }: HttpContextContract) {
+    const gameId: number = request.input('gameId')
+    try {
+      const numbers = await this.rehabilitationRepository.shareNumbers(gameId)
+      return numbers
+    } catch (e) {
+      console.log(e)
+      return response.status(200).send({
+        msg: e.message,
+      })
+    }
+  }
+
   public async getStatistics({ auth, response }: HttpContextContract) {
     try {
       const numbersStatistic = await this.rehabilitationRepository.getNumbersStatistics(auth.user!)

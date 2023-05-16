@@ -31,6 +31,19 @@ export default class FindLettersController {
     }
   }
 
+  public async shareLetters({ request, response }: HttpContextContract) {
+    const gameId: number = request.input('gameId')
+    try {
+      const letters = await this.rehabilitationRepository.shareLetters(gameId)
+      return letters
+    } catch (e) {
+      console.log(e)
+      return response.status(200).send({
+        msg: e.message,
+      })
+    }
+  }
+
   public async getStatistics({ auth, response }: HttpContextContract) {
     try {
       const letterStatistic = await this.rehabilitationRepository.getLettersStatistics(auth.user!)

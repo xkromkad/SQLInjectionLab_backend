@@ -8,10 +8,21 @@ export default class CommunityController {
   constructor(private communityRepository: CommunityRepositoryContract) {}
 
   public async getPosts({ response, params }: HttpContextContract) {
-    console.log(params.page)
     try {
       const page: number = params.page
       const posts = await this.communityRepository.getPosts(page)
+      return posts
+    } catch (e) {
+      console.log(e)
+      return response.status(200).send({
+        msg: e.message,
+      })
+    }
+  }
+
+  public async getPageCount({ response }: HttpContextContract) {
+    try {
+      const posts = await this.communityRepository.getPageCount()
       return posts
     } catch (e) {
       console.log(e)

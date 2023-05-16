@@ -18,6 +18,7 @@ declare module '@ioc:Repositories/CommunityRepository' {
   import { Post } from 'Contracts/community'
   export interface CommunityRepositoryContract {
     getPosts(page: number): Promise<Post[]>
+    getPageCount(): Promise<number>
   }
 
   export const CommunityRepository: CommunityRepositoryContract
@@ -58,7 +59,8 @@ declare module '@ioc:Repositories/RehabilitationRepository' {
     getUserExercises(user: User): Promise<number[]>
     saveUserExercise(user: User, idExercise: number): Promise<Exercise>
     removeUserExercise(user: User, idExercise: number): Promise<void>
-    savePexeso(user: User, time: number, date: DateTime, size: number): Promise<void>
+    savePexeso(user: User, time: number, date: DateTime, size: number): Promise<number>
+    sharePexeso(gameId: number): Promise<number>
     saveLetters(
       user: User,
       time: number,
@@ -66,7 +68,8 @@ declare module '@ioc:Repositories/RehabilitationRepository' {
       size: number,
       correctRate: number,
       missedtRate: number
-    ): Promise<void>
+    ): Promise<number>
+    shareLetters(gameId: number): Promise<number>
     saveNumbers(
       user: User,
       time: number,
@@ -74,7 +77,8 @@ declare module '@ioc:Repositories/RehabilitationRepository' {
       size: number,
       correctRate: number,
       missedtRate: number
-    ): Promise<void>
+    ): Promise<number>
+    shareNumbers(gameId: number): Promise<number>
     getStatistics(user: User): Promise<Pexeso[]>
     getNumbersStatistics(user: User): Promise<Pexeso[]>
     getLettersStatistics(user: User): Promise<Pexeso[]>
