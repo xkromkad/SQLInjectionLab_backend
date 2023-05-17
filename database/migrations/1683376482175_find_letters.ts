@@ -19,6 +19,7 @@ export default class extends BaseSchema {
         .inTable('users')
         .onDelete('CASCADE')
       table.boolean('is_shared').notNullable().defaultTo(false)
+      table.integer('likes').notNullable().defaultTo(0)
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
        */

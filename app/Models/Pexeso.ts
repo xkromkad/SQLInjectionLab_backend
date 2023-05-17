@@ -29,6 +29,9 @@ export default class Pexeso extends BaseModel {
   @column()
   public isShared: boolean
 
+  @column()
+  public likes: number
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 

@@ -16,9 +16,11 @@ declare module '@ioc:Repositories/DiscoverRepository' {
 declare module '@ioc:Repositories/CommunityRepository' {
   import { LucidModel, ModelPaginatorContract } from '@ioc:Adonis/Lucid/Orm'
   import { Post } from 'Contracts/community'
+  import User from 'App/Models/User'
   export interface CommunityRepositoryContract {
-    getPosts(page: number): Promise<Post[]>
+    getPosts(page: number, user: User): Promise<Post[]>
     getPageCount(): Promise<number>
+    likePost(id: number, liked: boolean, mark: string, user: User): Promise<void>
   }
 
   export const CommunityRepository: CommunityRepositoryContract

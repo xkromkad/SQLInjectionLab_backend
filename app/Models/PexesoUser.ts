@@ -8,10 +8,10 @@ export default class PexesoUser extends BaseModel {
   public id: number
 
   @column()
-  public userId: number
+  public pexeso_id: number
 
   @column()
-  public pexeso_id: number
+  public user_id: number
 
   @belongsTo(() => User, {
     localKey: 'user_id',

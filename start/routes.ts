@@ -31,6 +31,7 @@ Route.get('news', 'NewsController.getNews')
 Route.group(() => {
   Route.get('getPosts/:page', 'CommunityController.getPosts').middleware('auth')
   Route.get('getPageCount', 'CommunityController.getPageCount').middleware('auth')
+  Route.post('likePost', 'CommunityController.likePost').middleware('auth')
 }).prefix('community')
 
 // ORGANIZATION ROUTES

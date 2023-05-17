@@ -1,14 +1,17 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column, belongsTo, BelongsTo } from '@ioc:Adonis/Lucid/Orm'
 import User from './User'
-import FindNumber from './FindNumber'
+import FindLetter from './FindLetter'
 
-export default class FindNumberUser extends BaseModel {
+export default class FindLettersUser extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
   @column()
-  public find_numbers_id: number
+  public find_letters_id: number
+
+  @column()
+  public user_id: number
 
   @belongsTo(() => User, {
     localKey: 'user_id',
@@ -16,11 +19,11 @@ export default class FindNumberUser extends BaseModel {
   })
   public user: BelongsTo<typeof User>
 
-  @belongsTo(() => FindNumber, {
-    localKey: 'find_numbers_id',
+  @belongsTo(() => FindLetter, {
+    localKey: 'find_letters_id',
     foreignKey: 'id',
   })
-  public findNumber: BelongsTo<typeof FindNumber>
+  public findLetter: BelongsTo<typeof FindLetter>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
