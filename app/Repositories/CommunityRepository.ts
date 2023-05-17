@@ -12,7 +12,7 @@ export default class CommunityRepository implements CommunityRepositoryContract 
         'pexeso.id',
         'pexeso.time',
         'pexeso.size',
-        'pexeso.date',
+        'pexeso.created_at',
         'users.id',
         'users.firstname',
         'users.surname',
@@ -27,11 +27,11 @@ export default class CommunityRepository implements CommunityRepositoryContract 
             'find_letters.id',
             'find_letters.time',
             'find_letters.size',
-            'find_letters.date',
+            'find_letters.created_at',
             'users.id',
             'users.firstname',
             'users.surname',
-            Database.raw(`'find_letters' as mark`)
+            Database.raw(`'findLetters' as mark`)
           )
           .leftJoin('users', 'users.id', '=', 'find_letters.user_id')
           .where('is_shared', true)
@@ -43,11 +43,11 @@ export default class CommunityRepository implements CommunityRepositoryContract 
             'find_numbers.id',
             'find_numbers.time',
             'find_numbers.size',
-            'find_numbers.date',
+            'find_numbers.created_at',
             'users.id',
             'users.firstname',
             'users.surname',
-            Database.raw(`'find_numbers' as mark`)
+            Database.raw(`'findNumbers' as mark`)
           )
           .leftJoin('users', 'users.id', '=', 'find_numbers.user_id')
           .where('is_shared', true)
@@ -58,6 +58,51 @@ export default class CommunityRepository implements CommunityRepositoryContract 
   }
 
   public async getPageCount(): Promise<number> {
-    return 0
+    const posts = await Database.from('pexeso')
+      .select(
+        'pexeso.id',
+        'pexeso.time',
+        'pexeso.size',
+        'pexeso.created_at',
+        'users.id',
+        'users.firstname',
+        'users.surname',
+        Database.raw(`'pexeso' as mark`)
+      )
+      .leftJoin('users', 'users.id', '=', 'pexeso.user_id')
+      .where('is_shared', true)
+      .union((query) => {
+        query
+          .from('find_letters')
+          .select(
+            'find_letters.id',
+            'find_letters.time',
+            'find_letters.size',
+            'find_letters.created_at',
+            'users.id',
+            'users.firstname',
+            'users.surname',
+            Database.raw(`'findLetters' as mark`)
+          )
+          .leftJoin('users', 'users.id', '=', 'find_letters.user_id')
+          .where('is_shared', true)
+      })
+      .union((query) => {
+        query
+          .from('find_numbers')
+          .select(
+            'find_numbers.id',
+            'find_numbers.time',
+            'find_numbers.size',
+            'find_numbers.created_at',
+            'users.id',
+            'users.firstname',
+            'users.surname',
+            Database.raw(`'findNumbers' as mark`)
+          )
+          .leftJoin('users', 'users.id', '=', 'find_numbers.user_id')
+          .where('is_shared', true)
+      })
+    return await posts.length
   }
 }

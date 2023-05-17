@@ -30,7 +30,7 @@ Route.get('news', 'NewsController.getNews')
 // COMMUNITY ROUTES
 Route.group(() => {
   Route.get('getPosts/:page', 'CommunityController.getPosts').middleware('auth')
-  //Route.get('getPageCount', 'CommunityController.getPageCount').middleware('auth')
+  Route.get('getPageCount', 'CommunityController.getPageCount').middleware('auth')
 }).prefix('community')
 
 // ORGANIZATION ROUTES
