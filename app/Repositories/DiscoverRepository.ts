@@ -6,4 +6,8 @@ export default class DiscoverRepository implements DiscoverRepositoryContract {
   public async getArticles(): Promise<Discover[]> {
     return await Discover.all()
   }
+
+  public async getArticle(id: number): Promise<Discover> {
+    return await Discover.findOrFail(id)
+  }
 }

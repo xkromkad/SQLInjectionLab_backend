@@ -16,4 +16,17 @@ export default class DiscoversController {
       })
     }
   }
+
+  public async getArticle({ response, params }: HttpContextContract) {
+    try {
+      const id: number = params.id
+      const article = await this.discoverRepository.getArticle(id)
+      return article
+    } catch (e) {
+      console.log(e)
+      return response.status(200).send({
+        msg: e.message,
+      })
+    }
+  }
 }

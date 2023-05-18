@@ -6,6 +6,7 @@ declare module '@ioc:Repositories/DiscoverRepository' {
 
   export interface DiscoverRepositoryContract {
     getArticles(): Promise<Discover[]>
+    getArticle(id: number): Promise<Discover>
   }
 
   export const DiscoverRepository: DiscoverRepositoryContract

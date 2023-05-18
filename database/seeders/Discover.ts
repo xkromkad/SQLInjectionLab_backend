@@ -6,9 +6,9 @@ export default class extends BaseSeeder {
     // Write your database queries inside the run method
     const payload = [
       {
-        title: 'Ako správne cvičiť',
-        text: 'Viete, ako správne cvičiť. Dozviete sa to tu.',
-        image: 'discover/exercise.jpg',
+        title: 'Cievna mozgová príhoda',
+        text: 'Cievna mozgová príhoda, známa aj ako iktus alebo ľudovo povedaná porážka, je v dnešnej dobe stále jednou z najväčších hrozieb pre ľudské zdravie a jednou z naj- častejších príčin úmrtí na celom svete. Mnohí pacienti trpia trvalými následkami, ktoré sa môžu prejaviť v podobe porúch reči, koordinácie, pohybových návykov a ďalších symptómov. Preto je veľmi dôležité začať s rehabilitáciou čo najskôr po prekonaní prvej fázy ochorenia a sústrediť sa na plné nasadenie pacienta, aby sa minimalizovali následky.',
+        image: 'discover/movement.png',
       },
     ]
     // Write your database queries inside the run method

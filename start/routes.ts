@@ -43,6 +43,7 @@ Route.group(() => {
 // DISCOVER ROUTES
 Route.group(() => {
   Route.get('articles', 'DiscoversController.getArticles')
+  Route.get('article/:id', 'DiscoversController.getArticle')
 }).prefix('discover')
 
 // REHABILITATION ROUTES
