@@ -1,4 +1,4 @@
-// here we are declaring our DiscoverRepository types for Repositories/DiscoveerRepository
+// here we are declaring our DiscoverRepository types for Repositories/DiscoverRepository
 // container binding. See providers/AppProvider.ts for how we are binding the implementation
 declare module '@ioc:Repositories/DiscoverRepository' {
   import { LucidModel, ModelPaginatorContract } from '@ioc:Adonis/Lucid/Orm'
