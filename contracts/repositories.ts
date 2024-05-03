@@ -95,6 +95,22 @@ declare module '@ioc:Repositories/RehabilitationRepository' {
   export const RehabilitationRepository: RehabilitationRepositoryContract
 }
 
+// here we are declaring our OrganizationRepository types for Repositories/StateRepository
+// container binding. See providers/AppProvider.ts for how we are binding the implementation
+declare module '@ioc:Repositories/StateRepository' {
+  import { LucidModel, ModelPaginatorContract } from '@ioc:Adonis/Lucid/Orm'
+  import StateUser from 'App/Models/StateUser'
+  import User from 'App/Models/User'
+  import { DateTime } from 'luxon'
+
+  export interface StateRepositoryContract {
+    getState(user: User): Promise<StateUser | null>
+    saveState(user: User, state: string): Promise<void>
+  }
+
+  export const StateRepository: StateRepositoryContract
+}
+
 // here we are declaring our OrganizationRepository types for Repositories/NewsRepository
 // container binding. See providers/AppProvider.ts for how we are binding the implementation
 declare module '@ioc:Repositories/NewsRepository' {

@@ -6,11 +6,14 @@ import {
   BaseModel,
   manyToMany,
   ManyToMany,
+  hasOne,
+  HasOne,
   hasMany,
   HasMany,
 } from '@ioc:Adonis/Lucid/Orm'
 import Role from 'App/Models/Role'
 import Exercise from './Exercise'
+import StateUser from './StateUser'
 
 export default class User extends BaseModel {
   @column({ isPrimary: true })
@@ -70,6 +73,9 @@ export default class User extends BaseModel {
 
   @hasMany(() => Exercise)
   public adminChannels: HasMany<typeof Exercise>
+
+  @hasOne(() => StateUser)
+  public state: HasOne<typeof StateUser>
 
   @manyToMany(() => Exercise, {
     pivotTable: 'users_exercises',

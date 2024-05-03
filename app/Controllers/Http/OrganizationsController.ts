@@ -7,6 +7,7 @@ export default class OrganizationsController {
   constructor(private organizationRepository: OrganizationRepositoryContract) {}
 
   public async getOrganizations() {
+    console.log('hello')
     return await this.organizationRepository.getOrganizations()
   }
 
