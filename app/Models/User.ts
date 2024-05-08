@@ -74,7 +74,10 @@ export default class User extends BaseModel {
   @hasMany(() => Exercise)
   public adminChannels: HasMany<typeof Exercise>
 
-  @hasOne(() => StateUser)
+  @hasOne(() => StateUser, {
+    foreignKey: 'user_id',
+    localKey: 'id',
+  })
   public state: HasOne<typeof StateUser>
 
   @manyToMany(() => Exercise, {

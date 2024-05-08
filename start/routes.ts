@@ -24,6 +24,9 @@ Route.get('/', async ({ view }) => {
   return view.render('welcome')
 })
 
+Route.get('state', 'StateController.getState').middleware('auth')
+Route.post('state', 'StateController.saveState').middleware('auth')
+
 // NEWS ROUTES
 Route.get('news', 'NewsController.getNews')
 

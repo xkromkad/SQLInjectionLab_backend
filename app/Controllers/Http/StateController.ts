@@ -8,6 +8,7 @@ export default class StateController {
   constructor(private stateRepository: StateRepositoryContract) {}
 
   public async saveState({ request, auth, response }: HttpContextContract) {
+    console.log('ukladam')
     const state: string = request.input('state')
     try {
       const stateSaved = await this.stateRepository.saveState(auth.user!, state)
@@ -21,6 +22,7 @@ export default class StateController {
   }
 
   public async getState({ auth, response }: HttpContextContract) {
+    console.log('posielam')
     try {
       const stateResult = await this.stateRepository.getState(auth.user!)
       return stateResult

@@ -10,7 +10,8 @@ export default class StateRepository implements StateRepositoryContract {
   }
 
   public async saveState(user: User, state: string): Promise<void> {
-    const stateFound = await user.related('state').query().first()
+    console.log(user)
+    const stateFound = await user.related('state')?.query().first()
     if (stateFound) {
       stateFound.json = state
       await stateFound.save()
