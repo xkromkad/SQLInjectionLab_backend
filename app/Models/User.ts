@@ -8,11 +8,8 @@ import {
   ManyToMany,
   hasOne,
   HasOne,
-  hasMany,
-  HasMany,
 } from '@ioc:Adonis/Lucid/Orm'
 import Role from 'App/Models/Role'
-import Exercise from './Exercise'
 import StateUser from './StateUser'
 
 export default class User extends BaseModel {
@@ -71,20 +68,9 @@ export default class User extends BaseModel {
   })
   public roles: ManyToMany<typeof Role>
 
-  @hasMany(() => Exercise)
-  public adminChannels: HasMany<typeof Exercise>
-
   @hasOne(() => StateUser, {
     foreignKey: 'user_id',
     localKey: 'id',
   })
   public state: HasOne<typeof StateUser>
-
-  @manyToMany(() => Exercise, {
-    pivotTable: 'users_exercises',
-    pivotForeignKey: 'user_id',
-    pivotRelatedForeignKey: 'exercise_id',
-    pivotTimestamps: false,
-  })
-  public exercises: ManyToMany<typeof Exercise>
 }

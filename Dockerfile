@@ -1,7 +1,7 @@
 # Use a smaller base image
-#docker build -t rehapp_backend .
-#docker run -p 3000:3000 -d rehapp_backend
-FROM node:14-alpine3.14
+#docker build -t sqlinjectionlab_be .
+#docker run -p 3000:3000 -d sqlinjectionlab_be
+FROM node:20-alpine
 
 WORKDIR /usr/src/app
 
